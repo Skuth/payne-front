@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: "Inter", sans-serif;
+  color: $textColor;
+}
+
+input {
+  accent-color: $primary;
+}
+
+body {
+  background: $bgColor;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  @media (max-width: 1080px) {
+    font-size: 93.75%; // 16px * 0.9375 -> 15px
+  }
+
+  @media (max-width: 720px) {
+    font-size: 87.5%; // 16px * 0.875 -> 14px
+  }
+}
+
+body,
+html,
+#burh-app,
+#__next {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
+}
+
+[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+ul,
+ol {
+  list-style-position: inside;
+}
+
+img {
+  user-select: none;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0.65rem;
+  background-color: $bgColor;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: $bgColor;
+  @media (max-width: 800px) {
+    width: 4px;
+  }
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0.65rem;
+  background-color: $gray1;
+  &:hover {
+    background-color: $gray2;
+  }
+}
+
+::selection {
+  color: #ffffff;
+  background: $primary;
+}
+
+a {
+  text-decoration: none;
+  color: $textColor;
+  transition: color 0.25s;
+  &:hover {
+    text-decoration: none;
+    color: $textColor;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
