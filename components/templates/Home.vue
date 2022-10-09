@@ -1,7 +1,7 @@
 <template>
   <div class="home__template">
     <OrganismsBanner
-      src="https://www.zero3games.com.br/loja/assets/2022/10/6/dia-cri-playstation-2022-10-1280x512.webp"
+      src="https://preview.redd.it/hye632mbuk081.png?auto=webp&s=d99304f15905e18af0232a5292402276a6c15ef2"
       alt="Banner"
     />
 

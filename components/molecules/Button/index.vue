@@ -21,7 +21,17 @@
 </template>
 
 <script lang="ts">
-const allowedVariants = [
+import { PropType } from "vue";
+
+type VariantsType =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "danger"
+  | "warning"
+  | "info";
+
+const allowedVariants: VariantsType[] = [
   "primary",
   "secondary",
   "success",
@@ -37,7 +47,7 @@ export default {
       default: "",
     },
     variant: {
-      type: String,
+      type: String as PropType<VariantsType>,
       default: "primary",
     },
     outline: {
