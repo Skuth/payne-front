@@ -94,8 +94,6 @@ $variants: (
   "info": $info,
 );
 
-@debug ($variants);
-
 .button {
   display: flex;
   align-items: center;

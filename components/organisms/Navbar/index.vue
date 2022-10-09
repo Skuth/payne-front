@@ -2,9 +2,11 @@
   <nav class="navbar">
     <ul>
       <li id="logo">
-        <h1>
-          <AtomsLogo />
-        </h1>
+        <NuxtLink href="/">
+          <h1>
+            <AtomsLogo />
+          </h1>
+        </NuxtLink>
       </li>
     </ul>
 

@@ -102,8 +102,6 @@ $variants: (
   "info": $info,
 );
 
-@debug ($variants);
-
 .badge {
   display: inline-flex;
   align-items: center;
