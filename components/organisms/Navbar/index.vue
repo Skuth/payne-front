@@ -76,12 +76,13 @@ export default {
 .navbar {
   padding: 2rem 0;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
   align-items: center;
   justify-content: space-between;
 
   @media (max-width: 900px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 
@@ -105,6 +106,14 @@ export default {
       p {
         font-weight: 500;
       }
+    }
+
+    &:nth-child(1) {
+      justify-content: flex-start;
+    }
+
+    &:nth-child(3) {
+      justify-content: flex-end;
     }
 
     &:nth-child(2) {
