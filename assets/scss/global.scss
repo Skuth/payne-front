@@ -35,7 +35,7 @@ html {
 body,
 html,
 #burh-app,
-#__next {
+#__nuxt {
   height: 100%;
 }
 
@@ -73,7 +73,7 @@ img {
   background-color: $bgColor;
 }
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
   height: 4px;
   background-color: $bgColor;
   @media (max-width: 800px) {

@@ -8,7 +8,6 @@
         <p class="price">
           A partir de <span>R$ {{ data.price.startPrice }}</span>
         </p>
-        <span class="description">{{ data.description }}</span>
 
         <div class="badges">
           <MoleculesBadge
@@ -30,7 +29,7 @@ import { DataType } from "@/interfaces/Card";
 export default {
   props: {
     data: {
-      type: Object as PropType<DataType>,
+      type: Object as PropType<Omit<DataType, "description">>,
       required: true,
     },
   },
@@ -73,28 +72,8 @@ export default {
       }
     }
 
-    .description {
-      margin: 1.5rem 0;
-
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      display: -webkit-box;
-      display: -moz-box;
-
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-
-      @media (max-width: 500px) {
-        -webkit-line-clamp: initial;
-        line-clamp: initial;
-      }
-    }
-
     .badges {
+      margin-top: 1rem;
       display: flex;
       align-items: center;
       gap: 1rem;

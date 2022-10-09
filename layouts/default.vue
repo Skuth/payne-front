@@ -1,10 +1,10 @@
 <template>
   <div class="default__layout">
-    <AtomsBaseContainer>
-      <header>
-        <OrganismsNavbar />
-      </header>
+    <header>
+      <OrganismsNavbar />
+    </header>
 
+    <AtomsBaseContainer>
       <main class="main">
         <slot />
       </main>
@@ -16,7 +16,10 @@
 <script lang="ts"></script>
 
 <style lang="scss" scoped>
-.main {
-  padding: 2rem 0;
+.default__layout {
+  .main {
+    padding: 2rem 0;
+    min-height: calc(100vh - (115px + 450px));
+  }
 }
 </style>
