@@ -22,19 +22,45 @@
       </li>
     </ul>
 
-    <ul>
+    <ul v-if="!isUserOn">
       <li>
-        <MoleculesButton outline text="Criar Conta" />
+        <NuxtLink href="/criar-conta">
+          <MoleculesButton outline text="Criar Conta" />
+        </NuxtLink>
       </li>
       <li>
-        <MoleculesButton text="Entrar" />
+        <!-- <NuxtLink href="/entrar"> -->
+        <MoleculesButton text="Entrar" @click="handleLogin()" />
+        <!-- </NuxtLink> -->
+      </li>
+    </ul>
+
+    <ul v-else>
+      <li>
+        <span>User</span>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-export default {};
+import { useAuth } from "@/store/auth";
+
+export default {
+  setup() {
+    const auth = useAuth();
+
+    return {
+      isUserOn: computed(() => !!Object.values(auth.getUser).length),
+      auth,
+    };
+  },
+  methods: {
+    handleLogin() {
+      this.auth.emailLogin("email", "password");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

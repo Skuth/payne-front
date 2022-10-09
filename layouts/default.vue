@@ -1,14 +1,16 @@
 <template>
-  <AtomsBaseContainer>
-    <header>
-      <OrganismsNavbar />
-    </header>
+  <div class="default__layout">
+    <AtomsBaseContainer>
+      <header>
+        <OrganismsNavbar />
+      </header>
 
-    <main class="main">
-      <slot />
-    </main>
-  </AtomsBaseContainer>
-  <OrganismsFooter />
+      <main class="main">
+        <slot />
+      </main>
+    </AtomsBaseContainer>
+    <OrganismsFooter />
+  </div>
 </template>
 
 <script></script>
