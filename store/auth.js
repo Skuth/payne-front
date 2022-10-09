@@ -12,16 +12,12 @@ export const useAuth = defineStore("auth", {
     },
   },
   actions: {
-    emailLogin(email, password) {
-      console.log({
-        email,
-        password,
-      });
-
+    authWithCredentials(email, password) {
       this.user = {
         name: "Flavio",
         lastName: "Gomes",
         fullName: "Flavio Gomes",
+        avatar: "https://avatars.githubusercontent.com/u/25141448?v=4",
       };
     },
   },

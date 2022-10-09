@@ -37,7 +37,14 @@
 
     <ul v-else>
       <li>
-        <span>User</span>
+        <div class="user">
+          <AtomsAvatar
+            :src="currentUser.avatar"
+            :name="currentUser.fullName"
+            :size="48"
+          />
+          <p>{{ currentUser.fullName }}</p>
+        </div>
       </li>
     </ul>
   </nav>
@@ -49,15 +56,17 @@ import { useAuth } from "@/store/auth";
 export default {
   setup() {
     const auth = useAuth();
+    const currentUser = computed(() => auth.user);
 
     return {
       isUserOn: computed(() => !!Object.values(auth.getUser).length),
+      currentUser,
       auth,
     };
   },
   methods: {
     handleLogin() {
-      this.auth.emailLogin("email", "password");
+      this.auth.authWithCredentials("email", "password");
     },
   },
 };
@@ -86,6 +95,16 @@ export default {
     @media (max-width: 900px) {
       flex-direction: column;
       gap: 1.25rem;
+    }
+
+    .user {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      p {
+        font-weight: 500;
+      }
     }
 
     &:nth-child(2) {
