@@ -22,10 +22,10 @@ export default {
     },
   },
   methods: {
-    getPaddingInRem() {
+    getPaddingInRem(): number {
       return this.padding / 16;
     },
-    getCustomStyle() {
+    getCustomStyle(): { [key: string]: any } {
       return {
         ...(this.padding && { padding: `${this.getPaddingInRem()}rem` }),
       };

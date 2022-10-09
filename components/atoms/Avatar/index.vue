@@ -50,13 +50,13 @@ export default {
       .catch(() => (this.isImageValid = false));
   },
   methods: {
-    handleImageFallback() {
+    handleImageFallback(): void {
       this.isImageValid = false;
     },
-    getRandomNumberInRange(min: number, max: number) {
+    getRandomNumberInRange(min: number, max: number): number {
       return Math.floor(Math.random() * (max - min) + min);
     },
-    getRandomColor() {
+    getRandomColor(): string {
       const color = [
         this.getRandomNumberInRange(0, 200),
         this.getRandomNumberInRange(0, 200),
@@ -65,10 +65,10 @@ export default {
 
       return color.join(", ");
     },
-    getSizeInRem() {
+    getSizeInRem(): number {
       return this.size / 16;
     },
-    getNameInitials() {
+    getNameInitials(): string {
       const splitedName = String(this.name).trim().split(" ");
 
       if (splitedName.length > 1) {

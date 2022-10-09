@@ -19,7 +19,7 @@ export default {
     },
   },
   methods: {
-    getLogoVariant() {
+    getLogoVariant(): string {
       const variant = allowedsVaraitns.includes(this.variant)
         ? this.variant
         : allowedsVaraitns[0];

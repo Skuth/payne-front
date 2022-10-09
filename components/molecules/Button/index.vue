@@ -72,15 +72,15 @@ export default {
     },
   },
   methods: {
-    getVariant() {
+    getVariant(): VariantsType {
       return allowedVariants.includes(this.variant)
         ? this.variant
         : allowedVariants[0];
     },
-    getRadiusInRem() {
+    getRadiusInRem(): number {
       return this.borderRadius / 16;
     },
-    getCustomStyle() {
+    getCustomStyle(): { [key: string]: any } {
       return {
         ...(this.textColor && { color: this.textColor }),
         ...(this.bgColor && { background: this.bgColor }),

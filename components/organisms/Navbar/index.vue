@@ -13,14 +13,12 @@
         </ul>
 
         <ul>
-          <li>
-            <a href="/" class="active">Início</a>
-          </li>
-          <li>
-            <a href="/lista-de-desejos">Lista de desejos</a>
-          </li>
-          <li>
-            <a href="/compras">Minhas compras</a>
+          <li v-for="item in navItems" :key="item.path">
+            <a
+              :href="item.path"
+              :class="{ active: checkActivePage(item.path) }"
+              >{{ item.text }}</a
+            >
           </li>
         </ul>
 
@@ -52,6 +50,26 @@
 <script lang="ts">
 import { useAuth } from "@/store/auth";
 
+type NavItemType = {
+  text: string;
+  path: string;
+};
+
+const navItems: NavItemType[] = [
+  {
+    text: "Início",
+    path: "/",
+  },
+  {
+    text: "Lista de desejos",
+    path: "/lista-de-desejos",
+  },
+  {
+    text: "Minhas compras",
+    path: "/compras",
+  },
+];
+
 export default {
   setup() {
     const auth = useAuth();
@@ -63,7 +81,22 @@ export default {
       auth,
     };
   },
+  data() {
+    return {
+      navItems,
+    };
+  },
+  computed: {
+    currentPage() {
+      return this.$route.path;
+    },
+  },
   methods: {
+    checkActivePage(path: string): boolean {
+      return !!(path === "/"
+        ? this.currentPage === path
+        : this.currentPage.includes(path));
+    },
     handleLogin() {
       this.auth.authWithCredentials("email", "password");
     },
