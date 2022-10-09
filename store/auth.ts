@@ -14,12 +14,12 @@ export const useAuth = defineStore("auth", {
     };
   },
   getters: {
-    getUser(state) {
+    getUser(state): User {
       return state.user;
     },
   },
   actions: {
-    authWithCredentials(_email: string, _password: string) {
+    authWithCredentials(_email: string, _password: string): void {
       this.user = {
         name: "Flavio",
         lastName: "Gomes",
