@@ -97,7 +97,7 @@ export default {
         ? this.currentPage === path
         : this.currentPage.includes(path));
     },
-    handleLogin() {
+    handleLogin(): void {
       this.auth.authWithCredentials("email", "password");
     },
   },

@@ -80,7 +80,7 @@ export default {
     },
   },
   methods: {
-    getFormattedData(from: "top" | "popular" | "news") {
+    getFormattedData(from: "top" | "popular" | "news"): DataType[] {
       const data: DataType[] = Object.values(this[from]).map(
         (item): DataType => ({
           id: item.id,

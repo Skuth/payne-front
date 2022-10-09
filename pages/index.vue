@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-const getTop = async () => {
+const getTop = async (): Promise<Object> => {
   const response = await useFetch("/api/top")
     .then((res) => res.data)
     .then((res) => res.value)
@@ -13,7 +13,7 @@ const getTop = async () => {
   return response as Object;
 };
 
-const getPopular = async () => {
+const getPopular = async (): Promise<Object> => {
   const response = await useFetch("/api/popular")
     .then((res) => res.data)
     .then((res) => res.value)
@@ -23,7 +23,7 @@ const getPopular = async () => {
   return response as Object;
 };
 
-const getNews = async () => {
+const getNews = async (): Promise<Object> => {
   const response = await useFetch("/api/news")
     .then((res) => res.data)
     .then((res) => res.value)
