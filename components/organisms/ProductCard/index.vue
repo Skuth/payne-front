@@ -1,7 +1,7 @@
 <template>
   <NuxtLink href="/" class="big__card">
     <MoleculesCard :padding="0">
-      <img :src="src" :alt="alt" draggable="false" />
+      <img :src="data.image" :alt="data.title" draggable="false" />
 
       <div class="card__content">
         <p class="title">{{ data.title }}</p>
@@ -25,27 +25,10 @@
 
 <script lang="ts">
 import { PropType } from "vue";
-
-export type DataType = {
-  title: string;
-  price: {
-    startPrice: number;
-    endPrice: number;
-  };
-  description: string;
-  badges: string[];
-};
+import { DataType } from "@/interfaces/Card";
 
 export default {
   props: {
-    src: {
-      type: String,
-      required: true,
-    },
-    alt: {
-      type: String,
-      required: true,
-    },
     data: {
       type: Object as PropType<DataType>,
       required: true,

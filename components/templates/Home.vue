@@ -15,13 +15,7 @@
         </div>
       </template>
 
-      <OrganismsBigCard
-        v-for="i in 2"
-        :key="i"
-        :data="cardData"
-        src="https://cdn2.unrealengine.com/egs-valorant-riotgames-g1a-05-1920x1080-42cf018303e5.jpg"
-        alt="Valorant"
-      />
+      <OrganismsBigCard v-for="i in 2" :key="i" :data="cardData" />
     </AtomsProductGrid>
 
     <AtomsProductGrid :maxColItems="6">
@@ -34,13 +28,7 @@
         </div>
       </template>
 
-      <OrganismsProductCard
-        v-for="i in 5"
-        :key="i"
-        :data="cardData"
-        src="https://cdn2.unrealengine.com/egs-valorant-riotgames-g1a-05-1920x1080-42cf018303e5.jpg"
-        alt="Valorant"
-      />
+      <OrganismsProductCard v-for="i in 5" :key="i" :data="cardData" />
     </AtomsProductGrid>
 
     <AtomsProductGrid :maxColItems="4">
@@ -53,19 +41,13 @@
         </div>
       </template>
 
-      <OrganismsProductCard
-        v-for="i in 8"
-        :key="i"
-        :data="cardData"
-        src="https://cdn2.unrealengine.com/egs-valorant-riotgames-g1a-05-1920x1080-42cf018303e5.jpg"
-        alt="Valorant"
-      />
+      <OrganismsProductCard v-for="i in 8" :key="i" :data="cardData" />
     </AtomsProductGrid>
   </div>
 </template>
 
 <script lang="ts">
-import { DataType } from "@/components/organisms/BigCard/index.vue";
+import { DataType } from "@/interfaces/Card";
 
 export default {
   setup() {
@@ -78,6 +60,8 @@ export default {
       description:
         "VALORANT é um FPS tático 5x5 competitivo focado em personagens que se passa no mundo todo. Faça jogadas incríveis e supere seus oponentes com habilidades táticas, mecânica de tiro e trabalho em equipe.",
       badges: ["PC"],
+      image:
+        "https://cdn2.unrealengine.com/egs-valorant-riotgames-g1a-05-1920x1080-42cf018303e5.jpg",
     };
 
     return {
