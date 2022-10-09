@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink href="/" class="big__card">
+  <NuxtLink :href="href" class="product__card">
     <MoleculesCard :padding="0">
       <img :src="data.image" :alt="data.title" draggable="false" />
 
@@ -28,6 +28,10 @@ import { DataType } from "@/interfaces/Card";
 
 export default {
   props: {
+    href: {
+      type: String,
+      required: true,
+    },
     data: {
       type: Object as PropType<Omit<DataType, "description">>,
       required: true,
@@ -37,18 +41,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.big__card {
+.product__card {
   position: relative;
   cursor: pointer;
 
+  :deep(.card) {
+    height: 100%;
+    background: $gray4;
+  }
+
   img {
     width: 100%;
+    height: 250px;
     display: block;
     object-fit: cover;
   }
 
   .card__content {
-    padding: 2rem;
+    padding: 2rem 1rem;
     width: 100%;
 
     display: flex;
@@ -57,15 +67,15 @@ export default {
 
     color: $textColor;
 
-    background: $gray4;
-
     .title {
-      font-size: 2rem;
+      font-size: 1.25rem;
       font-weight: 600;
     }
 
     .price {
+      margin: 1rem 0;
       font-weight: 300;
+      font-size: 1rem;
       > span {
         font-weight: 600;
         font-size: 1.25rem;
@@ -73,10 +83,10 @@ export default {
     }
 
     .badges {
-      margin-top: 1rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
   }
 }

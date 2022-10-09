@@ -15,7 +15,12 @@
         </div>
       </template>
 
-      <OrganismsBigCard v-for="i in 2" :key="i" :data="cardData" />
+      <OrganismsBigCard
+        v-for="item in getFormattedData('top')"
+        :key="item.title"
+        :data="item"
+        :href="`/produto/${item.id}`"
+      />
     </AtomsProductGrid>
 
     <AtomsProductGrid :maxColItems="6">
@@ -28,7 +33,12 @@
         </div>
       </template>
 
-      <OrganismsProductCard v-for="i in 5" :key="i" :data="cardData" />
+      <OrganismsProductCard
+        v-for="item in getFormattedData('news')"
+        :key="item.title"
+        :data="item"
+        :href="`/produto/${item.id}`"
+      />
     </AtomsProductGrid>
 
     <AtomsProductGrid :maxColItems="4">
@@ -41,7 +51,12 @@
         </div>
       </template>
 
-      <OrganismsProductCard v-for="i in 8" :key="i" :data="cardData" />
+      <OrganismsProductCard
+        v-for="item in getFormattedData('popular')"
+        :key="item.title"
+        :data="item"
+        :href="`/produto/${item.id}`"
+      />
     </AtomsProductGrid>
   </div>
 </template>
@@ -50,23 +65,38 @@
 import { DataType } from "@/interfaces/Card";
 
 export default {
-  setup() {
-    const cardData: DataType = {
-      title: "Valorant",
-      price: {
-        startPrice: 50,
-        endPrice: 150,
-      },
-      description:
-        "VALORANT é um FPS tático 5x5 competitivo focado em personagens que se passa no mundo todo. Faça jogadas incríveis e supere seus oponentes com habilidades táticas, mecânica de tiro e trabalho em equipe.",
-      badges: ["PC"],
-      image:
-        "https://cdn2.unrealengine.com/egs-valorant-riotgames-g1a-05-1920x1080-42cf018303e5.jpg",
-    };
+  props: {
+    top: {
+      type: Object,
+      default: {},
+    },
+    popular: {
+      type: Object,
+      default: {},
+    },
+    news: {
+      type: Object,
+      default: {},
+    },
+  },
+  methods: {
+    getFormattedData(from: "top" | "popular" | "news") {
+      const data: DataType[] = Object.values(this[from]).map(
+        (item): DataType => ({
+          id: item.id,
+          title: item.title,
+          price: {
+            startPrice: item.options[0].price,
+            endPrice: item.options[0].price,
+          },
+          description: item.description,
+          badges: item.badges,
+          image: item.thumbnail,
+        })
+      );
 
-    return {
-      cardData,
-    };
+      return data;
+    },
   },
 };
 </script>

@@ -125,6 +125,8 @@ $variants: (
   font-size: 1rem;
   font-weight: 500;
 
+  white-space: nowrap;
+
   @each $variant, $color in $variants {
     &--#{$variant} {
       background: #{$color}44;

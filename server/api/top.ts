@@ -12,7 +12,7 @@ export default defineEventHandler(() => {
 
   return {
     error: false,
-    data: Array(8)
+    data: Array(2)
       .fill(null)
       .map(() => getRandomProduct())
       .filter(Boolean),

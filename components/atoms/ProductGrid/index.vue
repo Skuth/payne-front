@@ -41,6 +41,7 @@ export default {
       auto-fit,
       minmax(calc(($maxWidth / $maxColItems) - 2rem), 1fr)
     );
+
     gap: 2rem;
 
     @media (max-width: 500px) {

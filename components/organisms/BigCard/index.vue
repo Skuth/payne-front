@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink href="/" class="big__card">
+  <NuxtLink :href="href" class="big__card">
     <MoleculesCard :padding="0">
       <img :src="data.image" :alt="data.title" draggable="false" />
 
@@ -31,6 +31,10 @@ import { DataType } from "@/interfaces/Card";
 
 export default {
   props: {
+    href: {
+      type: String,
+      required: true,
+    },
     data: {
       type: Object as PropType<DataType>,
       required: true,
@@ -43,6 +47,17 @@ export default {
 .big__card {
   position: relative;
   cursor: pointer;
+  height: 100%;
+
+  @media (min-width: 501px) {
+    :deep(.card) {
+      height: 100%;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
 
   img {
     width: 100%;
@@ -64,15 +79,16 @@ export default {
     justify-content: center;
 
     color: #ffffff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(40px);
 
     @media (max-width: 500px) {
       position: relative;
       padding: 2rem;
       width: 100%;
-      background: $primary;
+      background: $textColor;
     }
 
     .title {
@@ -113,6 +129,7 @@ export default {
       display: flex;
       align-items: center;
       gap: 1rem;
+      flex-wrap: wrap;
     }
   }
 }
