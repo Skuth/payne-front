@@ -72,22 +72,18 @@
       </ul>
 
       <div class="copy">
-        <p>
-          Copyright &copy; {{ startYear }}-{{ currentYear }} Payne Store LTDA.
-        </p>
+        <p>Copyright &copy; 2022 - {{ currentYear }} Payne Store LTDA.</p>
       </div>
     </AtomsBaseContainer>
   </footer>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   setup() {
-    const startYear = 2022;
     const currentYear = new Date().getFullYear();
 
     return {
-      startYear,
       currentYear,
     };
   },
@@ -96,7 +92,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  background: #f9f9f9;
+  background: $gray5;
 
   .info {
     padding: 2rem 0;
@@ -118,6 +114,7 @@ export default {
     list-style: none;
     > li > p {
       font-weight: 600;
+      font-size: 1.25rem;
       margin-bottom: 1rem;
     }
     li > ul {

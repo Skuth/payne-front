@@ -1,9 +1,16 @@
 import { defineStore } from "pinia";
 
+export interface User {
+  name: string;
+  lastName: string;
+  fullName: string;
+  avatar: string;
+}
+
 export const useAuth = defineStore("auth", {
   state: () => {
     return {
-      user: {},
+      user: {} as User,
     };
   },
   getters: {
@@ -12,7 +19,7 @@ export const useAuth = defineStore("auth", {
     },
   },
   actions: {
-    authWithCredentials(email, password) {
+    authWithCredentials(_email: string, _password: string) {
       this.user = {
         name: "Flavio",
         lastName: "Gomes",

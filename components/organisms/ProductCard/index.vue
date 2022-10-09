@@ -16,8 +16,6 @@
             :key="badge"
             :text="badge"
             outline
-            borderColor="#ffffff"
-            textColor="#ffffff"
           />
         </div>
       </div>
@@ -68,29 +66,16 @@ export default {
   }
 
   .card__content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-
-    padding: 1rem;
+    padding: 2rem;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    color: #ffffff;
+    color: $textColor;
 
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-
-    @media (max-width: 500px) {
-      position: relative;
-      padding: 2rem;
-      width: 100%;
-      background: $primary;
-    }
+    background: $gray4;
 
     .title {
       font-size: 2rem;

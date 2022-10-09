@@ -9,7 +9,7 @@
       :width="size"
       :height="size"
       v-bind="$attrs"
-      @error="handleImageFallback"
+      onerror="handleImageFallback"
     />
 
     <p
@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     name: {
@@ -53,7 +53,7 @@ export default {
     handleImageFallback() {
       this.isImageValid = false;
     },
-    getRandomNumberInRange(min, max) {
+    getRandomNumberInRange(min: number, max: number) {
       return Math.floor(Math.random() * (max - min) + min);
     },
     getRandomColor() {

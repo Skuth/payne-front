@@ -34,4 +34,7 @@ export default defineNuxtConfig({
     },
   },
   css: ["@/assets/scss/global.scss"],
+  typescript: {
+    strict: true,
+  },
 });

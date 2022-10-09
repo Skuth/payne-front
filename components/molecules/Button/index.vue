@@ -20,7 +20,7 @@
   </button>
 </template>
 
-<script>
+<script lang="ts">
 const allowedVariants = [
   "primary",
   "secondary",

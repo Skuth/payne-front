@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 const allowedsVaraitns = ["black", "color", "no-background", "white"];
 
 export default {

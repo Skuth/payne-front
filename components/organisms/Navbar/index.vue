@@ -24,11 +24,6 @@
 
     <ul v-if="!isUserOn">
       <li>
-        <NuxtLink href="/criar-conta">
-          <MoleculesButton outline text="Criar Conta" />
-        </NuxtLink>
-      </li>
-      <li>
         <!-- <NuxtLink href="/entrar"> -->
         <MoleculesButton text="Entrar" @click="handleLogin()" />
         <!-- </NuxtLink> -->
@@ -50,7 +45,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import { useAuth } from "@/store/auth";
 
 export default {
@@ -77,12 +72,12 @@ export default {
   padding: 2rem 0;
 
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 300px 1fr 300px;
   align-items: center;
   justify-content: space-between;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
@@ -93,11 +88,6 @@ export default {
     align-items: center;
     gap: 0.5rem;
 
-    @media (max-width: 900px) {
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
     .user {
       cursor: pointer;
       display: flex;
@@ -105,6 +95,10 @@ export default {
       gap: 1rem;
       p {
         font-weight: 500;
+
+        @media (max-width: 500px) {
+          display: none;
+        }
       }
     }
 
@@ -121,13 +115,7 @@ export default {
       justify-content: center;
 
       @media (max-width: 900px) {
-        width: 100%;
-        li {
-          width: 100%;
-          a {
-            text-align: center;
-          }
-        }
+        display: none;
       }
 
       li {
