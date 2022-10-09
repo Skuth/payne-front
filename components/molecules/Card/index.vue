@@ -44,7 +44,7 @@ export default {
     transition: box-shadow 0.25s;
 
     &:hover {
-      box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.25);
     }
   }
 }
