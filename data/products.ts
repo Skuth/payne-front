@@ -37,7 +37,7 @@ const valorant: Product = {
     "VALORANT é um FPS tático 5x5 competitivo focado em personagens que se passa no mundo todo. Faça jogadas incríveis e supere seus oponentes com habilidades táticas, mecânica de tiro e trabalho em equipe.",
   badges: ["PC", "GIFT CARD"],
   thumbnail:
-    "https://cdn2.unrealengine.com/egs-valorant-riotgames-g1a-05-1920x1080-42cf018303e5.jpg",
+    "https://mmorpgbr.com.br/wp-content/uploads/2022/05/VALORANT-Mobile-APK-cover.jpeg",
   options: [
     {
       title: "R$ 50 Gift Card",
