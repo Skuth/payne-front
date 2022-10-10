@@ -6,7 +6,7 @@
           <li id="logo">
             <NuxtLink href="/">
               <h1>
-                <AtomsLogo />
+                <AtomsLogo :size="96" />
               </h1>
             </NuxtLink>
           </li>

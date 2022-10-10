@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Payne",
+      title: "Payne | Sua loja digital de jogos e giftcards",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
 
