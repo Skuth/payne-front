@@ -14,11 +14,12 @@
 
         <ul>
           <li v-for="item in navItems" :key="item.path">
-            <a
+            <NuxtLink
               :href="item.path"
               :class="{ active: checkActivePage(item.path) }"
-              >{{ item.text }}</a
             >
+              {{ item.text }}
+            </NuxtLink>
           </li>
         </ul>
 
