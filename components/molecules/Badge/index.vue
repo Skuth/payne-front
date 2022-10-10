@@ -118,7 +118,7 @@ $variants: (
   justify-content: space-between;
 
   padding: 0.25rem 0.75rem;
-  border-radius: 0.25rem;
+  border-radius: 100rem;
 
   gap: 0.5rem;
 

@@ -15,8 +15,7 @@
             v-for="badge in data.badges"
             :key="badge"
             :text="badge"
-            outline
-            borderColor="#ffffff"
+            bgColor="#ffffff44"
             textColor="#ffffff"
           />
         </div>
