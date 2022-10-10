@@ -89,7 +89,7 @@ const freefire: Product = {
   description:
     "Free Fire é um jogo eletrônico mobile de ação-aventura do gênero battle royale, criado pela desenvolvedora vietnamita 111dots Studio e publicado pela Garena. O jogo obteve um beta aberto em novembro de 2017 e foi lançado oficialmente para Android de iOS em 4 de dezembro de 2017.",
   badges: ["PC", "GIFT CARD"],
-  thumbnail: "http://portaldailha.com.br/noticias/fotos/freefire-bts4.jpg",
+  thumbnail: "https://portaldailha.com.br/noticias/fotos/freefire-bts4.jpg",
   options: [
     {
       title: "2350 Diamantes + Bonus Gift Card",
