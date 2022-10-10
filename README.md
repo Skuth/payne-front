@@ -3,11 +3,11 @@
 [Payne Backend ](https://github.com/kaiofgl/payne-api)
 Payne - Frontend
 
-# Nuxt 3 Minimal Starter
+## Nuxt 3 Minimal Starter
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-## Setup
+### Setup
 
 Make sure to install the dependencies:
 
@@ -22,7 +22,7 @@ npm install
 pnpm install --shamefully-hoist
 ```
 
-## Development Server
+### Development Server
 
 Start the development server on http://localhost:3000
 
@@ -30,7 +30,7 @@ Start the development server on http://localhost:3000
 npm run dev
 ```
 
-## Production
+### Production
 
 Build the application for production:
 
