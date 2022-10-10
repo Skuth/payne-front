@@ -5,6 +5,10 @@ export default defineNuxtConfig({
       title: "Payne",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+
+        // THEME
+        { name: "msapplication-TileColor", content: "#ffffff" },
+        { name: "theme-color", content: "#ffffff" },
       ],
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -16,6 +20,40 @@ export default defineNuxtConfig({
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap",
+        },
+
+        // ICONS
+        {
+          rel: "apple-touch-icon",
+          sizes: "180x180",
+          href: "/images/base/apple-touch-icon.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/images/base/favicon-32x32.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "192x192",
+          href: "/images/base/android-chrome-192x192.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "16x16",
+          href: "/images/base/favicon-16x16.png",
+        },
+        {
+          rel: "manifest",
+          href: "/images/base/site.webmanifest",
+        },
+        {
+          rel: "mask-icon",
+          href: "/images/base/safari-pinned-tab.svg",
+          color: "#ed2647",
         },
       ],
     },
