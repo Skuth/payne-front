@@ -122,7 +122,7 @@ $variants: (
 
   gap: 0.5rem;
 
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 500;
 
   white-space: nowrap;
