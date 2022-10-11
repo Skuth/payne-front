@@ -12,6 +12,8 @@
     "sass": "^1.55.0"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.3"
+    "@pinia/nuxt": "^0.4.3",
+    "remove-accents": "^0.4.3",
+    "slugify": "^1.6.5"
   }
 }

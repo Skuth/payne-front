@@ -19,7 +19,7 @@
         v-for="item in getFormattedData('top')"
         :key="item.title"
         :data="item"
-        :href="`/produto/${item.id}`"
+        :href="`/produto/${item.id}/${$slugifyString(item.title)}`"
       />
     </AtomsProductGrid>
 
@@ -37,7 +37,7 @@
         v-for="item in getFormattedData('news')"
         :key="item.title"
         :data="item"
-        :href="`/produto/${item.id}`"
+        :href="`/produto/${item.id}/${$slugifyString(item.title)}`"
       />
     </AtomsProductGrid>
 
@@ -55,7 +55,7 @@
         v-for="item in getFormattedData('popular')"
         :key="item.title"
         :data="item"
-        :href="`/produto/${item.id}`"
+        :href="`/produto/${item.id}/${$slugifyString(item.title)}`"
       />
     </AtomsProductGrid>
   </div>

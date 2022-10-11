@@ -10,7 +10,7 @@ export default {
         .then((res) => res.data)
         .then((res) => res.value)
         .then((res) => res?.data || {})
-        .catch(() => null);
+        .catch(() => ({}));
 
       return response as Object;
     };
@@ -20,7 +20,7 @@ export default {
         .then((res) => res.data)
         .then((res) => res.value)
         .then((res) => res?.data || {})
-        .catch(() => null);
+        .catch(() => ({}));
 
       return response as Object;
     };
@@ -30,7 +30,7 @@ export default {
         .then((res) => res.data)
         .then((res) => res.value)
         .then((res) => res?.data || {})
-        .catch(() => null);
+        .catch(() => ({}));
 
       return response as Object;
     };
