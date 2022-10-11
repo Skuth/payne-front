@@ -108,6 +108,10 @@ export default {
       object-fit: contain;
 
       border-radius: 0.5rem;
+
+      @media (max-width: 500px) {
+        height: 250px;
+      }
     }
   }
   &__content {
@@ -127,6 +131,10 @@ export default {
         .title {
           font-weight: 600;
           font-size: 2rem;
+
+          @media (max-width: 500px) {
+            font-size: 1.25rem;
+          }
         }
         .option__title {
           font-weight: 300;
@@ -139,6 +147,13 @@ export default {
         > span {
           font-size: 2.5rem;
           font-weight: 500;
+        }
+
+        @media (max-width: 500px) {
+          font-size: 0.75rem;
+          > span {
+            font-size: 1.5rem;
+          }
         }
       }
     }
