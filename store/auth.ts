@@ -16,7 +16,7 @@ type RecoveryPasswordType = {
   email: string;
 };
 
-export interface User {
+interface User {
   name: string;
   lastName: string;
   fullName: string;
@@ -61,5 +61,8 @@ export const useAuth = defineStore("auth", {
 
       return !!Math.floor(Math.random() * 2);
     },
+  },
+  persist: {
+    key: "@Payne:Auth",
   },
 });

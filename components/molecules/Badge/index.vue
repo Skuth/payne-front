@@ -142,7 +142,7 @@ $variants: (
       background: transparent;
       border: 2px solid $color;
       color: $color;
-      padding: calc(0.25em - 2px) calc(0.75rem - 2px);
+      padding: calc(0.25em - (2px * 2)) calc(0.75rem - 2px);
     }
   }
 }

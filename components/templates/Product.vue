@@ -47,6 +47,7 @@
 </template>
 
 <script lang="ts">
+import { useCart } from "@/store/cart";
 import { useProduct } from "@/store/product";
 import { Product } from "~~/interfaces/Products";
 
@@ -77,8 +78,13 @@ export default {
     handleSetActiveOption(option: number): void {
       this.activeOption = option;
     },
-    handleAddCurrentOptionToCard() {
-      console.info("Add", this.product.id, this.activeProductOption.id);
+    handleAddCurrentOptionToCard(): void {
+      const cart = useCart();
+
+      cart.addItemToCart({
+        productId: String(this.product.id),
+        optionId: String(this.activeProductOption.id),
+      });
     },
   },
 };

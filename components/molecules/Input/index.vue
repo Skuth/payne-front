@@ -1,6 +1,6 @@
 <template>
   <div class="input__container">
-    <label v-if="label" for="">
+    <label v-if="label" :for="getLabelForValue()">
       {{ label }} <span v-if="isRequired" class="required">*</span>
     </label>
 
@@ -12,6 +12,7 @@
       <slot name="leftElement" />
 
       <Field
+        :id="getLabelForValue()"
         :type="type"
         :name="name"
         :class="{ 'input--error': error }"
@@ -146,8 +147,8 @@ export default {
         }),
       };
     },
-    getLabelForValue() {
-      return `${this.name.toLowerCase()}-${this.type.toLowerCase()}-${new Date().getTime()}`;
+    getLabelForValue(): string {
+      return `${this.name.toLowerCase()}-${this.type.toLowerCase()}`;
     },
   },
 };

@@ -23,16 +23,32 @@
           </li>
         </ul>
 
-        <ul v-if="!isUserOn">
+        <ul>
           <li>
+            <NuxtLink href="/carrinho">
+              <MoleculesButton
+                outline
+                bg-color="transparent"
+                text-color="#ed2647"
+              >
+                <template v-slot:leftElement>
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </template>
+
+                <template v-slot:rightElement>
+                  <MoleculesBadge :text="cartItemsCount" />
+                </template>
+              </MoleculesButton>
+            </NuxtLink>
+          </li>
+
+          <li v-if="!isUserOn">
             <NuxtLink href="/entrar">
               <MoleculesButton text="Entrar" />
             </NuxtLink>
           </li>
-        </ul>
 
-        <ul v-else>
-          <li>
+          <li v-else>
             <div class="user">
               <AtomsAvatar
                 :src="currentUser.avatar"
@@ -50,6 +66,7 @@
 
 <script lang="ts">
 import { useAuth } from "@/store/auth";
+import { useCart } from "@/store/cart";
 
 type NavItemType = {
   text: string;
@@ -74,12 +91,15 @@ const navItems: NavItemType[] = [
 export default {
   setup() {
     const auth = useAuth();
+    const cart = useCart();
+
     const currentUser = computed(() => auth.user);
+    const cartItemsCount = computed(() => cart.getCartItemsCount);
 
     return {
       isUserOn: computed(() => !!Object.values(auth.getUser).length),
       currentUser,
-      auth,
+      cartItemsCount,
     };
   },
   data() {
@@ -97,9 +117,6 @@ export default {
       return !!(path === "/"
         ? this.currentPage === path
         : this.currentPage.includes(path));
-    },
-    handleLogin(): void {
-      this.auth.authWithCredentials("email", "password");
     },
   },
 };
@@ -134,6 +151,8 @@ export default {
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        margin-left: 1rem;
         p {
           font-weight: 500;
 

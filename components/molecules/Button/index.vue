@@ -151,7 +151,7 @@ $variants: (
       background: transparent;
       border: 2px solid $color;
 
-      padding: calc(0.75rem - 2px) calc(1.25rem - 2px);
+      padding: calc(0.75rem - (2px * 2)) calc(1.25rem - 2px);
 
       color: $color;
 
