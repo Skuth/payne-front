@@ -1,0 +1,28 @@
+{
+  "Payne base structure": {
+    "prefix": "payne-base",
+    "body": [
+      "<template>",
+      "  <div class=\"${1:${TM_DIRECTORY/^.+[\\\\/\\\\\\\\]+(.*)$/$1/}}\">$2</div>",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "export default {",
+      "  setup() {",
+      "    $3",
+      "    return {};",
+      "  },",
+      "};",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      ".${1:${TM_DIRECTORY/^.+[\\\\/\\\\\\\\]+(.*)$/$1/}} {",
+      "  $4 /* css */",
+      "}",
+      "</style>",
+      ""
+    ],
+    "description": "Payne base structure",
+    "scope": "vue"
+  }
+}

@@ -115,7 +115,7 @@ $variants: (
 .badge {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   padding: 0.25rem 0.75rem;
   border-radius: 100rem;

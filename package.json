@@ -14,6 +14,9 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.3",
     "remove-accents": "^0.4.3",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "vee-validate": "^4.7.0",
+    "yup": "^0.32.11",
+    "yup-locale-pt": "^0.0.9"
   }
 }

@@ -1,6 +1,11 @@
 <template>
   <div class="logo">
-    <img :src="getLogoVariant()" alt="Payne Logo" :width="size" />
+    <img
+      :src="getLogoVariant()"
+      alt="Payne Logo"
+      :width="size"
+      draggable="false"
+    />
   </div>
 </template>
 

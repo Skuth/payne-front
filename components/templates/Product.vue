@@ -25,7 +25,7 @@
             :key="key"
             class="item"
             :class="{ active: key === activeOption }"
-            @click="() => handleSetActiveOption(key)"
+            @click="handleSetActiveOption(key)"
           >
             <img
               :src="option.image"
@@ -38,7 +38,7 @@
         <div class="action">
           <MoleculesButton
             text="Adicionar ao Carrinho"
-            @click="() => handleAddCurrentOptionToCard()"
+            @click="handleAddCurrentOptionToCard()"
           />
         </div>
       </div>

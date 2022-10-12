@@ -60,5 +60,7 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
-  }
+  },
+
+  "vetur.experimental.templateInterpolationService": true
 }

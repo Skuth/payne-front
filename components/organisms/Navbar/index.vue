@@ -25,9 +25,9 @@
 
         <ul v-if="!isUserOn">
           <li>
-            <!-- <NuxtLink href="/entrar"> -->
-            <MoleculesButton text="Entrar" @click="handleLogin()" />
-            <!-- </NuxtLink> -->
+            <NuxtLink href="/entrar">
+              <MoleculesButton text="Entrar" />
+            </NuxtLink>
           </li>
         </ul>
 

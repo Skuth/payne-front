@@ -5,15 +5,24 @@
       outline ? `button__outline--${getVariant()}` : `button--${getVariant()}`
     "
     :style="getCustomStyle()"
+    :disabled="isLoading"
     v:bind="$attrs"
   >
     <slot name="leftElement" />
 
-    <template v-if="text">
-      <p>{{ text }}</p>
+    <template v-if="!isLoading">
+      <template v-if="text">
+        <p>{{ text }}</p>
+      </template>
+
+      <template v-else>
+        <slot />
+      </template>
     </template>
+
     <template v-else>
-      <slot />
+      <slot name="loading" />
+      <p v-if="!$slots.loading">{{ loadingMessage }}</p>
     </template>
 
     <slot name="rightElement" />
@@ -70,6 +79,14 @@ export default {
       type: Number,
       default: null,
     },
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    loadingMessage: {
+      type: String,
+      default: "Carregando...",
+    },
   },
   methods: {
     getVariant(): VariantsType {
@@ -107,7 +124,7 @@ $variants: (
 .button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
@@ -124,7 +141,7 @@ $variants: (
 
       transition: background-color 0.25s, box-shadow 0.25s;
 
-      &:hover {
+      &:not(:disabled):hover {
         background: darken($color, 8);
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       }
@@ -140,7 +157,7 @@ $variants: (
 
       transition: border-color 0.25s, background-color 0.25s, color 0.25s;
 
-      &:hover {
+      &:not(:disabled):hover {
         background: $color;
         color: #ffffff;
       }
