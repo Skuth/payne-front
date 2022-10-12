@@ -32,7 +32,7 @@ export const useCart = defineStore("cart", {
   actions: {
     addItemToCart({ productId, optionId }: AddItemToCartType): void {
       const itemIndex = this.cart.findIndex(
-        (item) => item.productId == productId
+        (item) => item.productId == productId && item.optionId == optionId
       );
 
       if (itemIndex >= 0) {
