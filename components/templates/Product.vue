@@ -49,13 +49,21 @@
 <script lang="ts">
 import { useCart } from "@/store/cart";
 import { useProduct } from "@/store/product";
-import { Product } from "~~/interfaces/Products";
+import { Product } from "@/interfaces/Products";
+import { SeoDataType } from "@/interfaces/Seo";
 
 export default {
   setup() {
     const product = useProduct();
+    const { $seoTags } = useNuxtApp();
 
     const currentProduct = product.getProduct;
+
+    $seoTags({
+      title: currentProduct.title,
+      description: currentProduct.description,
+      embedImage: currentProduct.thumbnail,
+    } as SeoDataType);
 
     return {
       product: currentProduct,

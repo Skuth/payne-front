@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Payne | Sua loja digital de jogos e gift cards",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
 
@@ -83,5 +82,11 @@ export default defineNuxtConfig({
   css: ["@/assets/scss/global.scss"],
   typescript: {
     strict: true,
+  },
+  runtimeConfig: {
+    public: {
+      appUrl: process.env.APP_URL,
+      facebookAppId: process.env.FACEBOOK_APP_ID,
+    },
   },
 });
