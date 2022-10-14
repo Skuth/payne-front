@@ -10,8 +10,31 @@ export default defineNuxtPlugin((nuxtApp) => {
       title: "Sua loja digital de jogos e gift cards",
       description:
         "Payne é sua loja digital de Gift card, compre e ative na hora.",
-      keywords:
-        "payne,comprar,games,jogos,game,jogo,computador,pc,mac,lançamentos,fps,rpg,simulador,estrategia,loja,xbox one,ps4,nintendo switch,playstation 4,xbox,playstation,nintendo,console",
+      keywords: [
+        "payne",
+        "comprar",
+        "games",
+        "jogos",
+        "game",
+        "jogo",
+        "computador",
+        "pc",
+        "mac",
+        "lançamentos",
+        "fps",
+        "rpg",
+        "simulador",
+        "estrategia",
+        "loja",
+        "xbox one",
+        "ps4",
+        "nintendo switch",
+        "playstation 4",
+        "xbox",
+        "playstation",
+        "nintendo",
+        "console",
+      ],
       url: config.public.appUrl,
       embedImage: `${config.public.appUrl}/images/base/apple-touch-icon-180x180.png`,
       twitterCardStyle: "summary_large_image",
@@ -24,6 +47,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     const route = useRoute();
 
     const currentYear = new Date().getFullYear();
+
+    if (data.keywords) {
+      data.keywords = [...data.keywords, ...seoData.keywords!];
+    }
 
     seoData.url = [config.public.appUrl, route.fullPath].join("");
 
@@ -42,7 +69,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         {
           key: "keywords",
           name: "keywords",
-          content: seo.keywords,
+          content: seo.keywords?.join(","),
         },
         {
           key: "robots",

@@ -30,6 +30,40 @@ export const useCart = defineStore("cart", {
     },
   },
   actions: {
+    async getProductsFromCart() {
+      const idList = this.cart.reduce((prev: string[], curr): string[] => {
+        if (!prev.includes(curr.productId)) {
+          prev.push(curr.productId);
+        }
+
+        return prev;
+      }, []);
+
+      const productList = await useFetch(`/api/product`, {
+        query: {
+          id: idList,
+        },
+      })
+        .then((res) => res.data)
+        .then((res) => res.value)
+        .then((res) => res?.data)
+        .catch(() => null);
+
+      return this.cart.map((item) => {
+        const product = productList?.find(
+          (product) => product?.id == item.productId
+        );
+        const option = product?.options.find(
+          (option) => option.id == item.optionId
+        );
+
+        return {
+          ...item,
+          product,
+          option,
+        };
+      });
+    },
     addItemToCart({ productId, optionId }: AddItemToCartType): void {
       const itemIndex = this.cart.findIndex(
         (item) => item.productId == productId && item.optionId == optionId

@@ -18,7 +18,6 @@
         :class="{ 'input--error': error }"
         :disabled="disabled"
         :required="isRequired"
-        rules="required"
         v-bind="$attrs"
       />
 

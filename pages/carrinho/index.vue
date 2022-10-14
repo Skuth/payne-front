@@ -1,22 +1,9 @@
 <template>
-  <div>
-    <pre>{{ cartItems }}</pre>
-  </div>
+  <TemplatesCart />
 </template>
 
 <script lang="ts">
-import { useCart } from "@/store/cart";
-
-export default {
-  setup() {
-    const cart = useCart();
-    const cartItems = computed(() => cart.getCart);
-
-    return {
-      cartItems,
-    };
-  },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped></style>

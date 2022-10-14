@@ -3,7 +3,7 @@ export type SeoDataType = {
   titleDivisor?: string;
   title?: string;
   description?: string;
-  keywords?: string;
+  keywords?: string[];
   url?: string;
   embedImage?: string;
   twitterCardStyle?: string;

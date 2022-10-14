@@ -63,6 +63,7 @@ export default {
       title: currentProduct.title,
       description: currentProduct.description,
       embedImage: currentProduct.thumbnail,
+      keywords: [currentProduct.title],
     } as SeoDataType);
 
     return {
@@ -88,6 +89,12 @@ export default {
     },
     handleAddCurrentOptionToCard(): void {
       const cart = useCart();
+
+      this.$toast.success(
+        `${this.product.title} - ${this.activeProductOption.title}
+        <br/>
+        Adicionado ao carrinho`
+      );
 
       cart.addItemToCart({
         productId: String(this.product.id),
