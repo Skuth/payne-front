@@ -1,5 +1,7 @@
 import { defineStore } from "pinia";
 
+import { Product, Option } from "@/interfaces/Products";
+
 type AddItemToCartType = {
   productId: string;
   optionId: string;
@@ -9,7 +11,15 @@ type RemoveItemFromCartType = {
   optionId: string;
 };
 
-export interface Cart {
+interface Cart {
+  productId: string;
+  optionId: string;
+  count: number;
+}
+
+interface CartFull {
+  product: Product;
+  option: Option;
   productId: string;
   optionId: string;
   count: number;
@@ -19,6 +29,7 @@ export const useCart = defineStore("cart", {
   state: () => {
     return {
       cart: [] as Cart[],
+      cartFull: [] as CartFull[],
     };
   },
   getters: {
@@ -27,6 +38,22 @@ export const useCart = defineStore("cart", {
     },
     getCartItemsCount(state): string {
       return String(state.cart.length || 0);
+    },
+    getCartFull(state): CartFull[] {
+      return state.cartFull;
+    },
+    getCartTotal(state): number {
+      const total = state.cartFull.reduce(
+        (prev: number, curr: CartFull): number => {
+          const currTotal = curr.option.price * curr.count;
+          prev = Number(prev + currTotal);
+
+          return prev;
+        },
+        0
+      );
+
+      return total;
     },
   },
   actions: {
@@ -49,7 +76,7 @@ export const useCart = defineStore("cart", {
         .then((res) => res?.data)
         .catch(() => null);
 
-      return this.cart.map((item) => {
+      const cart = this.cart.map((item) => {
         const product = productList?.find(
           (product) => product?.id == item.productId
         );
@@ -57,12 +84,16 @@ export const useCart = defineStore("cart", {
           (option) => option.id == item.optionId
         );
 
+        if (!product || !option) return false;
+
         return {
           ...item,
           product,
           option,
         };
       });
+
+      this.cartFull = cart.filter(Boolean) as CartFull[];
     },
     addItemToCart({ productId, optionId }: AddItemToCartType): void {
       const itemIndex = this.cart.findIndex(
@@ -83,6 +114,10 @@ export const useCart = defineStore("cart", {
       this.cart = this.cart.filter(
         (item) => item.productId != productId && item.optionId != optionId
       );
+    },
+    clearCart() {
+      this.cart = [];
+      this.cartFull = [];
     },
   },
   persist: {

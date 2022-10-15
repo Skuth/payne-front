@@ -3,7 +3,16 @@
 </template>
 
 <script lang="ts">
-export default {};
+import { useCart } from "@/store/cart";
+
+export default {
+  async setup() {
+    const cart = useCart();
+    await cart.getProductsFromCart();
+
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

@@ -19,7 +19,13 @@
             />
 
             <div class="info">
-              <p>{{ item.product.title }}</p>
+              <NuxtLink
+                :href="`/produto/${item.product.id}/${$slugifyString(
+                  item.product.title
+                )}`"
+              >
+                {{ item.product.title }}
+              </NuxtLink>
               <span>{{ item.option.title }}</span>
             </div>
           </div>
@@ -41,11 +47,11 @@
       <div class="cart__footer">
         <div class="info">
           <p class="count">{{ cartItemsCount }} Produtos</p>
-          <p class="price">R$ {{ getCartTotal() }}</p>
+          <p class="price">R$ {{ cartTotal }}</p>
         </div>
 
         <div class="action">
-          <MoleculesButton text="Pagar agora" />
+          <MoleculesButton text="Pagar agora" @click="handleGoToCheckout()" />
         </div>
       </div>
     </div>
@@ -56,27 +62,23 @@
 import { useCart } from "@/store/cart";
 
 export default {
-  async setup() {
+  setup() {
     const cart = useCart();
 
-    const cartItems = await cart.getProductsFromCart();
+    const cartItems = computed(() => cart.getCartFull);
     const cartItemsCount = computed(() => cart.getCartItemsCount);
+    const cartTotal = computed(() => cart.getCartTotal);
 
     return {
       cartItems,
       cartItemsCount,
+      cartTotal,
     };
   },
   methods: {
-    getCartTotal() {
-      const total = this.cartItems.reduce((prev: number, curr): number => {
-        const currTotal = curr!.option!.price * curr.count;
-        prev = Number(prev + currTotal);
-
-        return prev;
-      }, 0);
-
-      return total;
+    handleGoToCheckout(): void {
+      const cart = useCart();
+      cart.clearCart();
     },
   },
 };
@@ -129,10 +131,16 @@ export default {
       }
 
       .info {
-        p {
+        a {
           font-weight: bold;
           font-size: 1rem;
           color: $textColor;
+          display: block;
+          transition: color 0.25s;
+
+          &:hover {
+            color: $primary;
+          }
         }
         span {
           font-weight: 300;

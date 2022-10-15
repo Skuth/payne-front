@@ -2,7 +2,8 @@ import { products } from "@/data/products";
 
 export default defineEventHandler(({ event }) => {
   const query = useQuery(event);
-  const id: string[] = query.id as string[];
+  const id: string[] =
+    typeof query.id === "object" ? query.id : ([query.id] as string[]);
 
   return {
     error: false,
