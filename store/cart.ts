@@ -70,6 +70,7 @@ export const useCart = defineStore("cart", {
         query: {
           id: idList,
         },
+        initialCache: false,
       })
         .then((res) => res.data)
         .then((res) => res.value)

@@ -6,45 +6,54 @@
 
     <div class="cart__container">
       <div class="cart__body">
-        <div
-          v-for="item in cartItems"
-          :key="`${item.productId}-${item.optionId}`"
-          class="cart__item"
-        >
-          <div v-if="item.product && item.option">
-            <img
-              class="image"
-              :alt="`${item.product.title} - ${item.option.title}`"
-              :src="item.option.image"
-            />
+        <template v-if="cartItems.length">
+          <div
+            v-for="item in cartItems"
+            :key="`${item.productId}-${item.optionId}`"
+            class="cart__item"
+          >
+            <div v-if="item.product && item.option">
+              <img
+                class="image"
+                :alt="`${item.product.title} - ${item.option.title}`"
+                :src="item.option.image"
+              />
 
-            <div class="info">
-              <NuxtLink
-                :href="`/produto/${item.product.id}/${$slugifyString(
-                  item.product.title
-                )}`"
-              >
-                {{ item.product.title }}
-              </NuxtLink>
-              <span>{{ item.option.title }}</span>
+              <div class="info">
+                <NuxtLink
+                  :href="`/produto/${item.product.id}/${$slugifyString(
+                    item.product.title
+                  )}`"
+                >
+                  {{ item.product.title }}
+                </NuxtLink>
+                <span>{{ item.option.title }}</span>
+              </div>
+            </div>
+
+            <div v-if="item.product && item.option">
+              <MoleculesInput
+                type="number"
+                name="count"
+                :value="item.count"
+                :min="item.count"
+                :max="item.count"
+                disabled
+              />
+              <p>R$ {{ item.option.price * item.count }}</p>
             </div>
           </div>
+        </template>
 
-          <div v-if="item.product && item.option">
-            <MoleculesInput
-              type="number"
-              name="count"
-              :value="item.count"
-              :min="item.count"
-              :max="item.count"
-              disabled
-            />
-            <p>R$ {{ item.option.price * item.count }}</p>
+        <template v-else>
+          <div class="cart__empty">
+            <h2>Opss!</h2>
+            <p>Parece que ainda não tem nada aqui</p>
           </div>
-        </div>
+        </template>
       </div>
 
-      <div class="cart__footer">
+      <div class="cart__footer" v-if="cartItems.length">
         <div class="info">
           <p class="count">{{ cartItemsCount }} Produtos</p>
           <p class="price">R$ {{ cartTotal }}</p>
@@ -104,6 +113,19 @@ export default {
   &__body,
   &__footer {
     padding: 2rem;
+  }
+
+  &__empty {
+    padding: 2rem 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > h2 {
+      padding: 1rem 0;
+    }
   }
 
   &__item {

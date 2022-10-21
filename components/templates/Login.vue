@@ -117,6 +117,8 @@ export default {
   &__template {
     min-height: 100vh;
 
+    padding: 2rem 0;
+
     display: grid;
     place-items: center;
 
